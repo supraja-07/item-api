@@ -1,0 +1,28 @@
+# Maven
+target/
+.m2/
+*.jar
+*.war
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.class
+.classpath
+.project
+.settings/
+bin/
+
+# Logs
+*.log
+logs/
