@@ -1,13 +1,14 @@
 # Build stage
-FROM maven:3.8.1-openjdk-17 AS build
+FROM maven:3.9.0-openjdk-17 AS builder
 WORKDIR /app
 COPY pom.xml .
+RUN mvn dependency:go-offline -B
 COPY src ./src
-RUN mvn clean package -DskipTests
+RUN mvn clean package -DskipTests -B
 
 # Runtime stage
 FROM openjdk:17-slim
 WORKDIR /app
-COPY --from=build /app/target/item-api-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder /app/target/item-api-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
