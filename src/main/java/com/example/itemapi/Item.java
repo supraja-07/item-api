@@ -1,7 +1,7 @@
 package com.example.itemapi;
 
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
 
 /**
  * Model class representing an Item.
